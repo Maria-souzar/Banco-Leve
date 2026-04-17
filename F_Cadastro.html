@@ -1,0 +1,81 @@
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+    <link rel="stylesheet" type="text/css" href="F_Cadastro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+     <script language="JavaScript">
+        function Login() {
+    var cpf = document.form_cadastro.text_cpf.value;
+    var nome = document.form_cadastro.text_nome.value;
+    var idade = document.form_cadastro.text_idade.value;
+    var celular = document.form_cadastro.text_celular.value;
+    var senha = document.form_cadastro.text_senha.value;
+
+    var modal = document.getElementById("aviso_modal");
+    var titulo = document.getElementById("modal_titulo");
+    var mensagem = document.getElementById("modal_mensagem");
+    
+    if ((cpf == "22233344455" || nome == "Fulano" || idade == "25" || celular == "11999999999") && senha == "123") {
+        titulo.innerText = "Sucesso!";
+        titulo.style.color = "#28a745";
+        mensagem.innerText = "Cadastro realizado com sucesso";
+        modal.style.display = "flex";
+
+        setTimeout(function () {
+            window.location.href = "F_Conta.html";
+        }, 2000);
+    } else {
+        titulo.innerText = "Erro no Cadastro";
+        titulo.style.color = "#dc3545";
+        mensagem.innerText = "Dados incorretos ou incompletos";
+        modal.style.display = "flex";
+
+        document.form_cadastro.text_cpf.value = "";
+        document.form_cadastro.text_nome.value = "";
+        document.form_cadastro.text_idade.value = "";
+        document.form_cadastro.text_celular.value = "";
+        document.form_cadastro.text_senha.value = "";
+    }
+}
+
+        function fecharModal() {
+            document.getElementById("aviso_modal").style.display = "none";
+        }
+    </script>
+</head>
+<body>
+    <div id="bloco_cadastro">
+        <div class="form-container">
+            <h1>CADASTRO</h1>
+            <h4>Preencha seus dados para continuar</h4>
+
+            <form name="form_cadastro">
+                <fieldset>
+                    <input type="text" name="text_cpf" class="cadastro_campos" placeholder="CPF"><br>
+                    <input type="text" name="text_nome" class="cadastro_campos" placeholder="Nome completo"><br>
+                    <input type="number" name="text_idade" class="cadastro_campos" placeholder="Idade"><br>
+                    <input type="text" name="text_celular" class="cadastro_campos" placeholder="Celular"><br>
+                    <input type="password" name="text_senha" class="cadastro_campos" placeholder="Senha"><br>
+                    <input type="password" name="text_senha_repete" class="cadastro_campos" placeholder="Repita a Senha"><br>
+                    <input type="button" id="botao_cadastro" value="Cadastro" onClick="Login()">
+                </fieldset>
+            </form>
+
+            <br><br>
+
+            <h4><input type="checkbox" name="checkbox_termos">Ao continuar, você concorda com os termos e declara ciência da nossa Política de Privacidade</h4>
+        </div>
+
+        <div id="aviso_modal" class="modal">
+        <div class="modal-content">
+            <h2 id="modal_titulo"></h2>
+            <p id="modal_mensagem"></p>
+            <button onclick="fecharModal()">OK</button>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Transferência de Dinheiro</title>
+  <link rel="stylesheet" type="text/css" href="F_Transferir.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  </head>
+<body>
+  <div class="container">
+    <h1>TRANSFERÊNCIA BANCÁRIA</h1>
+    <div class="conta">CONTA ORIGEM: R$ <span id="origem">1000.00</span></div>
+    <div class="conta">CONTA DESTINO: R$ <span id="destino">500.00</span></div>
+    <input type="number" id="valor" placeholder="VALOR DA TRANSFERÊNCIA">
+    <br>
+    <button onclick="transferir()">TRANSFERIR</button>
+    <button onclick="resetar()">CANCELAR</button>
+
+    <div class="historico">
+      <h2>HISTÓRICO DE TRANSFERÊNCIAS</h2>
+      <ul id="listaHistorico"></ul>
+    </div>
+  </div>
+</body>
+</html>

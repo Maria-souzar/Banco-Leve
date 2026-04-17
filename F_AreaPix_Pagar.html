@@ -1,0 +1,24 @@
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>PAGAR COM PIX</title>
+  <link rel="stylesheet" href="F_AreaPix_Pagar.css">
+</head>
+<body>
+  <div class="container">
+    <h1>PAGAMENTO VIA PIX</h1>
+    <input type="text" id="chave" placeholder="DIGITE A CHAVE PIX">
+    <input type="number" id="valor" placeholder="VALOR DO PAGAMENTO">
+    <br>
+    <button onclick="pagar()">PAGAR</button>
+    <button onclick="resetar()">CANCELAR</button>
+
+    <div class="mensagem" id="mensagem"></div>
+
+    <div class="historico">
+      <h2>HISTÓRICO DE PAGAMENTOS</h2>
+      <ul id="listaHistorico"></ul>
+    </div>
+  </div>
+</body>
+</html>

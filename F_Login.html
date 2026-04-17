@@ -1,0 +1,72 @@
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="F_Login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script language="JavaScript">
+        function Login() {
+            var usuario = document.form_login.text_usuario.value;
+            var senha = document.form_login.text_senha.value;
+            var modal = document.getElementById("aviso_modal");
+            var titulo = document.getElementById("modal_titulo");
+            var mensagem = document.getElementById("modal_mensagem");
+
+            if ((usuario == "22233344455" || usuario == "fulano@gmail.com") && senha == "123") {
+                titulo.innerText = "Sucesso!";
+                titulo.style.color = "#28a745"; // Verde
+                mensagem.innerText = "Login realizado com sucesso";
+                modal.style.display = "flex";
+
+                setTimeout(function () {
+                    window.location.href = "F_Conta.html";
+                }, 2000);
+            }
+            else {
+                titulo.innerText = "Erro no Login";
+                titulo.style.color = "#dc3545";
+                mensagem.innerText = "Usuário ou senha incorretos";
+                modal.style.display = "flex";
+
+                document.form_login.text_usuario.value = "";
+                document.form_login.text_senha.value = "";
+            }
+        }
+
+        function fecharModal() {
+            document.getElementById("aviso_modal").style.display = "none";
+           
+        }
+    </script>
+</head>
+<body>  
+
+    <div id="bloco_login">
+        <div class="form-container">
+            <h1>Entrar</h1>
+            <h4>Preencha seus dados para continuar</h4>
+
+            <form name="form_login">
+                <fieldset>
+                    <input type="text" class="login_campos" name="text_usuario" placeholder="CPF">
+                    <input type="password" class="login_campos" name="text_senha" placeholder="Senha">
+                    <em><a href="F_Login_Codigo.html">Esqueceu a senha?</a></em>
+                    <input type="button" id="login_botao" value="Entrar" onClick="Login()">
+                </fieldset>
+            </form> <br><br>
+
+            <h4>Ao continuar, você concorda com os termos de uso e com a nossa Política de Privacidade</h4>
+        </div>
+    </div>
+
+    <div id="aviso_modal" class="modal">
+        <div class="modal-content">
+            <h2 id="modal_titulo"></h2>
+            <p id="modal_mensagem"></p>
+            <button onclick="fecharModal()">OK</button>
+        </div>
+    </div>
+</body>
+</html>

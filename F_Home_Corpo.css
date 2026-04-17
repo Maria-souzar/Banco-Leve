@@ -1,0 +1,318 @@
+.hero{
+    margin-top: -78px;
+    margin-left: -10px;
+    margin-right: -10px;
+    min-height: 850px;
+    background-image:url("Imagem_Home.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 40% center;
+}
+.container {
+    padding-top: 20px;
+    font-family: poppins;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 60px;
+    margin-left: 60px;    
+    max-width: 500px;
+    line-height: 1.4;     
+    color: #001D39;
+    font-size: 25px;
+}
+
+
+
+.servicos {
+    position: relative;
+    z-index: 1;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-top: -350px;
+    min-height:2092px;
+    background-image: url("Imagem_Home_Background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 30% center;
+}
+.servicos_container {
+    margin: 5px;
+    font-family: poppins;
+    font-weight: bold;
+    text-align: left;
+    line-height: 0.0;   
+    margin-left: 60px;
+    color: #001D39;   
+}
+.titulo_serv {
+    padding-top: 60px;
+    margin-top: 60px;   
+    max-width: 500px;
+    font-size: 50px; 
+}
+.titulo_serv h2{
+    padding-top: 20px;
+    max-width: 500px;     
+    font-size: 25px;
+     
+}
+.texto_serv {
+    position: relative;
+    padding-top: 200px;
+    font-family: poppins;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.4;     
+    color: #001D39;
+    font-size: 30px;
+}
+.texto2_serv {
+    position: relative;
+    margin-top: -600px;
+    padding-top: 100px;
+    font-family: poppins;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.4;     
+    color: #001D39;
+    font-size: 30px;
+}
+.imagem_serv {
+    position: relative;
+    bottom: -650px;
+    max-width: 400px;
+    
+   
+}
+.cards_serv {
+    grid-template-columns: repeat(4, 1fr);
+    top: 600px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 40px;
+}
+.card_serv {
+    background: #ffffff;
+    border-radius: 20px;
+    width: 260px;
+    height: 200px;
+    display: grid;
+    padding: 20px;
+    text-align: center;
+}
+/* TÍTULO */
+.card_serv h3 {
+    font-family: poppins;
+    line-height: 1.4;
+    text-align: right;
+    font-size: 25px;
+    font-weight: bold;
+    color: #001D39;
+    margin-bottom: 10px;
+}
+/* TEXTO */
+.card_serv p {
+    font-family: poppins;
+    margin-top: 0px;
+    text-align: right;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+}
+
+
+
+
+.investimentos {
+    position: relative;
+    z-index: 2;
+    margin-top: -370px;
+    margin-left: -10px;
+    margin-right: -10px;
+    min-height: 1155px;
+    background-image: url("Imagem_Home_Investimento.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 30% center;
+}
+.investimentos_container {
+    margin: 5px;
+    font-family: poppins;
+    font-weight: bold;
+    text-align: left;
+    line-height: 0.0;   
+    margin-left: 60px;
+    color: #bdd8e9;   
+}
+.titulo_invest {
+    padding-top: 70px;
+    margin-top: 60px;   
+    max-width: 500px;
+    font-size: 40px; 
+}
+.titulo_invest h2{
+    padding-top: 20px;
+    max-width: 500px;     
+    font-size: 25px;
+     
+}
+.cards_invest {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 500px;
+    margin-left: 60px;
+    top: 100px;
+    position: relative;
+    gap: 40px;
+    
+}
+.card_invest {
+    background: #ffffff;
+    font-family: poppins;
+    border-radius: 20px;
+    width: 260px;
+    height: 180px;
+    display: grid;
+    padding: 20px;
+    text-align: center;
+}
+/* TÍTULO */
+.card_invest h3 {
+    font-family: poppins;
+    line-height: 1.0;
+    text-align: right;
+    font-size: 25px;
+    font-weight: bold;
+    color: #001D39;
+    margin-bottom: 10px;
+}
+/* SUBTÍTULO */
+.card_invest p1 {
+    font-family: poppins;
+    font-weight: 400;
+    line-height: 1.0;
+    text-align: right;
+    font-size: 15px;
+    color: #001D39;
+    margin-bottom: 10px;
+}
+/* TEXTO */
+.card_invest p {
+    font-family: poppins;
+    font-weight: 400;
+    text-align: right;
+    font-size: 15px;
+    margin-top: 0px;
+    color: #555;
+    line-height: 1.0;
+}
+.imagem_invest {
+    position: relative;
+    flex: 1; 
+    display: flex;
+    left: 50%;
+    margin-right: 50%;
+}
+/* IMAGEM */
+.img_direita {
+    margin-top: -370px;
+    max-width: 700px;
+    border-radius: 20px;
+}
+
+
+.emprestimos {
+    position: relative;
+    z-index: 2;
+    margin-top: -370px;
+    margin-left: -10px;
+    margin-right: -80px;
+    min-height: 1150px;
+    background-image: url("Imagem_Home_Emprestimos.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 30% center;
+}
+.emprestimo_container {
+    margin: 5px;
+    font-family: poppins;
+    font-weight: bold;
+    text-align: left;
+    line-height: 0.0;   
+    margin-left: 60px;
+    color: #bdd8e9;   
+}
+.titulo_empres {
+    padding-top: 70px;
+    margin-top: 60px;   
+    max-width: 500px;
+    font-size: 40px; 
+}
+.titulo_empres h2{
+    padding-top: 20px;
+    margin-bottom: 70px;
+    max-width: 500px;     
+    font-size: 25px;
+     
+}
+.imagem_empres {
+     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    padding: 80px 60px;
+}
+/* IMAGEM */
+.img_esquerda {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 25px;
+}
+
+.cards_empres {
+    margin-top: -650px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 350px;
+}
+
+.card_empres {
+    background: #ffffff;
+    border-radius: 25px;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 150px;
+    width: 520px;
+    box-sizing: border-box;
+}
+
+
+/* TÍTULO */
+.card_empres strong {
+   font-family: poppins;
+    font-size: 16px;
+    color: #001D39;
+
+}
+/* SUBTÍTULO */
+.card_empres p {
+    font-family: poppins;
+    font-size: 18px;
+    color: #6b6b6b;
+    margin: 0;
+}
+/* TEXTO */
+.card_empres h2 {
+    font-family: poppins;
+    font-weight: bold;
+    font-size: 30px;
+    color: #5f8ea3;
+}

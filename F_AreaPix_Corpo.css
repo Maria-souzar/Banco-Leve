@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: poppins;
+  font-size: 20px;
+  background-color: hsl(206, 64%, 94%);
+  color: rgb(0, 0, 26);
+}
+
+h1 {
+  font-family: poppins;
+  font-size: 30px;
+  color: #09375d;
+  margin: 10px 0;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+button {
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+  border: 1px solid #1c75bc;
+  background-color: white;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button p {
+  margin: 0;
+}
+
+.pix-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border:1px solid #1c75bc;
+  background-color: white;
+  cursor: pointer;
+}
+
+.pix-button .icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+}
+
+.pix-button h3 {
+  margin: 5px 0;
+}
+
+.pix-button p {
+  margin: 0;
+  font-size: 14px;
+  color: #272626;
+}
+
+button:hover {
+  background-color: #1c75bc;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover p{
+  color: white;
+}

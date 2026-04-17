@@ -1,0 +1,32 @@
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Pegar Empréstimo</title>
+  <link rel="stylesheet" type="text/css" href="F_PegarEmprestado.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  </head>
+<body>
+  <div class="container">
+    <h1>PEGAR EMPRÉSTIMO</h1>
+    <input type="number" id="valor" placeholder="VALOR DO EMPRÉSTIMO">
+    <select id="prazo">
+      <option value="">SELECIONE O PRAZO</option>
+      <option value="6">6 MESES</option>
+      <option value="12">12 MESES</option>
+      <option value="24">24 MESES</option>
+    </select>
+    <br>
+    <button onclick="emprestar()">CONFIRMAR</button>
+    <button onclick="resetar()">CANCELAR</button>
+
+    <div class="mensagem" id="mensagem"></div>
+
+    <div class="historico">
+      <h2>HISTÓRICO DE EMPRÉSTIMOS</h2>
+      <ul id="listaHistorico"></ul>
+    </div>
+  </div>
+</body>
+</html>
