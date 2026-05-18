@@ -1,225 +1,269 @@
+body {
+    font-family: poppins;
+    margin: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HERO */
 .hero{
-    margin-top: -78px;
-    margin-left: -10px;
-    margin-right: -10px;
-    min-height: 850px;
-    background-image:url("Imagem_Home.png");
+    width: 100%;
+    height: 100vh;
+    background: url("Imagem_Home.png");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 40% center;
+    background-position: 40% 20%;
+    padding-top: 90px;
+    position: relative;
 }
+
+/* TEXTO HERO */
 .container {
-    padding-top: 20px;
-    font-family: poppins;
     font-weight: bold;
-    text-align: left;
-    margin-top: 60px;
     margin-left: 60px;    
     max-width: 500px;
-    line-height: 1.4;     
-    color: #001D39;
+    color: #0A4174;
     font-size: 25px;
+    padding: 0 40px;
 }
 
+/* ONDA */
+.onda_servicos {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
 
-
-.servicos {
+/* IMAGEM ONDA */
+.onda_servicos img {
+    display: block;
+    width: 100%;
+    min-width: 1000px;
+    margin-bottom: -2px;
     position: relative;
     z-index: 1;
-    margin-left: -10px;
-    margin-right: -10px;
-    margin-top: -350px;
-    min-height:2092px;
-    background-image: url("Imagem_Home_Background.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 30% center;
 }
+
+/* TEXTO SOBRE A ONDA */
 .servicos_container {
-    margin: 5px;
-    font-family: poppins;
-    font-weight: bold;
-    text-align: left;
-    line-height: 0.0;   
-    margin-left: 60px;
-    color: #001D39;   
-}
-.titulo_serv {
-    padding-top: 60px;
-    margin-top: 60px;   
-    max-width: 500px;
-    font-size: 50px; 
-}
-.titulo_serv h2{
-    padding-top: 20px;
-    max-width: 500px;     
-    font-size: 25px;
-     
-}
-.texto_serv {
-    position: relative;
-    padding-top: 200px;
-    font-family: poppins;
-    font-weight: bold;
-    text-align: center;
-    line-height: 1.4;     
-    color: #001D39;
-    font-size: 30px;
-}
-.texto2_serv {
-    position: relative;
-    margin-top: -600px;
-    padding-top: 100px;
-    font-family: poppins;
-    font-weight: bold;
-    text-align: center;
-    line-height: 1.4;     
-    color: #001D39;
-    font-size: 30px;
-}
-.imagem_serv {
-    position: relative;
-    bottom: -650px;
-    max-width: 400px;
-    
-   
-}
-.cards_serv {
-    grid-template-columns: repeat(4, 1fr);
-    top: 600px;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 40px;
+    bottom: 10px;
+    left: 60px;
+    max-width: 600px;
+    color: #001D39;
+    z-index: 2;
 }
+
+.titulo_serv h1 {
+    font-size: 60px;
+    line-height: 1.2;
+}
+
+.titulo_serv p {
+    font-size: 25px;
+    line-height: 1.4;
+}
+
+.servicos {
+    background-image: url("Imagem_Home_Servicos.png");
+    background-size: cover;
+    background-position: 40% 20%;
+    background-repeat: no-repeat;
+    padding-top: 140px;
+    padding-bottom: 750px;
+    position: relative;
+}
+
+/* TEXTO */
+.texto_serv h2 {
+    text-align: center;
+    font-size: 50px;
+    color: #001D39;
+}
+
+/* CARDS */
+.cards_serv {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
 .card_serv {
     background: #ffffff;
     border-radius: 20px;
     width: 260px;
     height: 200px;
-    display: grid;
     padding: 20px;
     text-align: center;
 }
+
 /* TÍTULO */
 .card_serv h3 {
-    font-family: poppins;
-    line-height: 1.4;
-    text-align: right;
     font-size: 25px;
     font-weight: bold;
     color: #001D39;
     margin-bottom: 10px;
 }
+
 /* TEXTO */
 .card_serv p {
-    font-family: poppins;
-    margin-top: 0px;
-    text-align: right;
     font-size: 14px;
     color: #555;
     line-height: 1.4;
 }
 
+/* TEXTO FINAL */
+.texto2_serv {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.texto2_serv h1 {
+    font-size: 30px;
+    color: #001D39;
+}
 
 
+
+/* ONDA */
+.onda_investimentos {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+/* IMAGEM ONDA */
+.onda_investimentos img {
+    display: block;
+    width: 100%;
+    min-width: 1000px;
+    margin-bottom: -2px;
+}
+
+/* TEXTO SOBRE A ONDA */
+.investimentos_container {
+    position: absolute;
+    bottom: 20px;
+    left: 60px;
+    max-width: 600px;
+    color: #BDD8E9;
+}
+
+.titulo_invest h1 {
+    font-size: 55px;
+    line-height: 1.2;
+}
+
+.titulo_invest p {
+    font-size: 25px;
+    line-height: 1.4;
+}
 
 .investimentos {
-    position: relative;
-    z-index: 2;
-    margin-top: -370px;
-    margin-left: -10px;
-    margin-right: -10px;
-    min-height: 1155px;
-    background-image: url("Imagem_Home_Investimento.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 30% center;
+    background-color: #49769F;
+    padding: 120px 60px 80px;
+    overflow: hidden;
 }
-.investimentos_container {
-    margin: 5px;
-    font-family: poppins;
-    font-weight: bold;
-    text-align: left;
-    line-height: 0.0;   
-    margin-left: 60px;
-    color: #bdd8e9;   
+
+/* WRAPPER */
+.investimentos_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
 }
-.titulo_invest {
-    padding-top: 70px;
-    margin-top: 60px;   
-    max-width: 500px;
-    font-size: 40px; 
-}
-.titulo_invest h2{
-    padding-top: 20px;
-    max-width: 500px;     
-    font-size: 25px;
-     
-}
+
 .cards_invest {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 500px;
-    margin-left: 60px;
-    top: 100px;
-    position: relative;
-    gap: 40px;
-    
+    grid-template-columns: repeat(2, 260px);
+    gap: 30px;
+    /* largura mínima fixa */
+    min-width: 550px;
 }
+
 .card_invest {
-    background: #ffffff;
-    font-family: poppins;
+    background: white;
     border-radius: 20px;
     width: 260px;
     height: 180px;
-    display: grid;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
 }
-/* TÍTULO */
+
 .card_invest h3 {
-    font-family: poppins;
-    line-height: 1.0;
-    text-align: right;
-    font-size: 25px;
-    font-weight: bold;
+    font-size: 28px;
+    line-height: 1.1;
     color: #001D39;
     margin-bottom: 10px;
 }
-/* SUBTÍTULO */
+
 .card_invest p1 {
-    font-family: poppins;
-    font-weight: 400;
-    line-height: 1.0;
-    text-align: right;
     font-size: 15px;
     color: #001D39;
+    line-height: 1.2;
     margin-bottom: 10px;
 }
-/* TEXTO */
+
 .card_invest p {
-    font-family: poppins;
-    font-weight: 400;
-    text-align: right;
-    font-size: 15px;
-    margin-top: 0px;
+    font-size: 14px;
+    line-height: 1.3;
     color: #555;
-    line-height: 1.0;
 }
+
 .imagem_invest {
     position: relative;
-    flex: 1; 
+    flex-shrink: 0;
+    width: 450px;
     display: flex;
-    left: 50%;
-    margin-right: 50%;
+    justify-content: center;
 }
-/* IMAGEM */
+
 .img_direita {
-    margin-top: -370px;
-    max-width: 700px;
-    border-radius: 20px;
+    width: 100%;
+    max-width: 450px;
+    display: block;
+    border-radius: 30px;
+}
+
+/* BOTÃO */
+.btn_invest {
+    position: absolute;
+    bottom: 25px;
+    padding: 14px 28px;
+    background: #001D39;
+    color: white;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* QUANDO NÃO COUBER MAIS */
+@media (max-width: 1150px) {
+    .investimentos_wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .imagem_invest {
+        width: 100%;
+        max-width: 450px;
+    }
 }
 
 
