@@ -6,7 +6,53 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <script>
+    function cadastrarChave() {
+      let chave = document.getElementById("chave_pix").value;
+      if (chave) {
+        let chaves = JSON.parse(localStorage.getItem("chavesPix")) || [];
+        chaves.push(chave);
+        localStorage.setItem("chavesPix", JSON.stringify(chaves));
+        document.getElementById("chave_pix").value = "";
+        mostrarChaves();
+        alert("Chave Pix cadastrada com sucesso!");
+      } else {
+        alert("Digite uma chave válida.");
+      }
+    }
+
+    function mostrarChaves() {
+      let chaves = JSON.parse(localStorage.getItem("chavesPix")) || [];
+      let lista = document.getElementById("lista_chaves");
+      lista.innerHTML = "";
+      chaves.forEach(function(chave, index) {
+        let li = document.createElement("li");
+        li.textContent = chave;
+
+        let btn = document.createElement("button");
+        btn.textContent = "Excluir";
+        btn.classList.add("delete-btn");
+        btn.onclick = function() {
+          excluirChave(index);
+        };
+
+        li.appendChild(btn);
+        lista.appendChild(li);
+      });
+    }
+
+    function excluirChave(index) {
+      let chaves = JSON.parse(localStorage.getItem("chavesPix")) || [];
+      chaves.splice(index, 1);
+      localStorage.setItem("chavesPix", JSON.stringify(chaves));
+      mostrarChaves();
+      alert("Chave Pix excluída com sucesso!");
+    }
+
+    window.onload = mostrarChaves;
+  </script>
 </head>
+
 <body>
   <section class="pix-section">
     <h2>CADASTRAR CHAVE PIX</h2>

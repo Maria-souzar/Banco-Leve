@@ -6,7 +6,47 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  </head>
+  <script>
+    let historico = [];
+
+    function emprestar() {
+      const valor = parseFloat(document.getElementById('valor').value);
+      const prazo = document.getElementById('prazo').value;
+
+      if (!isNaN(valor) && valor > 0 && prazo) {
+        // juros simples: 2% ao mês
+        const juros = 0.02;
+        const total = valor * (1 + juros * prazo);
+
+        const registro = `Empréstimo de R$ ${valor.toFixed(2)} em ${prazo} meses. Total a pagar: R$ ${total.toFixed(2)}`;
+        historico.push(registro);
+
+        document.getElementById('mensagem').textContent = "Empréstimo aprovado!";
+        atualizarHistorico();
+      } else {
+        document.getElementById('mensagem').textContent = "Preencha todos os campos corretamente!";
+      }
+    }
+
+    function resetar() {
+      historico = [];
+      document.getElementById('mensagem').textContent = "";
+      document.getElementById('valor').value = "";
+      document.getElementById('prazo').value = "";
+      atualizarHistorico();
+    }
+
+    function atualizarHistorico() {
+      const lista = document.getElementById('listaHistorico');
+      lista.innerHTML = "";
+      historico.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        lista.appendChild(li);
+      });
+    }
+  </script>
+</head>
 <body>
   <div class="container">
     <h1>PEGAR EMPRÉSTIMO</h1>

@@ -3,6 +3,46 @@
   <meta charset="UTF-8">
   <title>PAGAR COM PIX</title>
   <link rel="stylesheet" href="F_AreaPix_Pagar.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <script>
+    let historico = [];
+
+    function pagar() {
+      const chave = document.getElementById('chave').value.trim();
+      const valor = parseFloat(document.getElementById('valor').value);
+
+      if (chave && !isNaN(valor) && valor > 0) {
+        const data = new Date().toLocaleString("pt-BR");
+        const registro = `Pagamento de R$ ${valor.toFixed(2)} para chave PIX "${chave}" em ${data}`;
+        historico.push(registro);
+
+        document.getElementById('mensagem').textContent = "Pagamento realizado com sucesso!";
+        atualizarHistorico();
+      } else {
+        document.getElementById('mensagem').textContent = "Preencha todos os campos corretamente!";
+      }
+    }
+
+    function resetar() {
+      historico = [];
+      document.getElementById('mensagem').textContent = "";
+      document.getElementById('chave').value = "";
+      document.getElementById('valor').value = "";
+      atualizarHistorico();
+    }
+
+    function atualizarHistorico() {
+      const lista = document.getElementById('listaHistorico');
+      lista.innerHTML = "";
+      historico.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        lista.appendChild(li);
+      });
+    }
+  </script>
 </head>
 <body>
   <div class="container">

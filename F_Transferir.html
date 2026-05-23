@@ -6,6 +6,44 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <script>
+    let origem = 1000;
+    let destino = 500;
+    let historico = [];
+
+    function transferir() {
+      const valor = parseFloat(document.getElementById('valor').value);
+      if (!isNaN(valor) && valor > 0 && valor <= origem) {
+        origem -= valor;
+        destino += valor;
+        historico.push(`Transferido R$ ${valor.toFixed(2)} da Origem para Destino`);
+        atualizar();
+      } else {
+        alert("Valor inválido ou saldo insuficiente!");
+      }
+    }
+
+    function resetar() {
+      origem = 1000;
+      destino = 500;
+      historico = [];
+      atualizar();
+    }
+
+    function atualizar() {
+      document.getElementById('origem').textContent = origem.toFixed(2);
+      document.getElementById('destino').textContent = destino.toFixed(2);
+      document.getElementById('valor').value = "";
+
+      const lista = document.getElementById('listaHistorico');
+      lista.innerHTML = "";
+      historico.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        lista.appendChild(li);
+      });
+    }
+  </script>
   </head>
 <body>
   <div class="container">
