@@ -10,7 +10,7 @@
         function Login() {
         var cpf = document.form_cadastro.text_cpf.value;
         var nome = document.form_cadastro.text_nome.value;
-        var idade = document.form_cadastro.text_idade.value;
+        var data_nascimento = document.form_cadastro.text_data_nascimento.value;
         var celular = document.form_cadastro.text_celular.value;
         var senha = document.form_cadastro.text_senha.value;
 
@@ -18,14 +18,14 @@
         var titulo = document.getElementById("modal_titulo");
         var mensagem = document.getElementById("modal_mensagem");
     
-        if ((cpf == "22233344455" || nome == "Fulano" || idade == "25" || celular == "11999999999") && senha == "123") {
+        if ((cpf == "22233344455" && nome == "Rafaela" && data_nascimento == "2001-01-01" && celular == "11999999999") && senha == "123") {
             titulo.innerText = "Sucesso!";
             titulo.style.color = "#28a745";
             mensagem.innerText = "Cadastro realizado com sucesso";
             modal.style.display = "flex";
 
             setTimeout(function () {
-                window.location.href = "F_Conta.html";
+                window.location.href = "F_Conta_Corpo.html";
             }, 2000);
         } else {
             titulo.innerText = "Erro no Cadastro";
@@ -35,7 +35,7 @@
 
             document.form_cadastro.text_cpf.value = "";
             document.form_cadastro.text_nome.value = "";
-            document.form_cadastro.text_idade.value = "";
+            document.form_cadastro.text_data_nascimento.value = "";
             document.form_cadastro.text_celular.value = "";
             document.form_cadastro.text_senha.value = "";
         }
@@ -56,7 +56,7 @@
                 <fieldset>
                     <input type="text" name="text_cpf" class="cadastro_campos" placeholder="CPF"><br>
                     <input type="text" name="text_nome" class="cadastro_campos" placeholder="Nome completo"><br>
-                    <input type="number" name="text_idade" class="cadastro_campos" placeholder="Idade"><br>
+                    <input type="date" name="text_data_nascimento" class="cadastro_campos" placeholder="Data de Nascimento"><br>
                     <input type="text" name="text_celular" class="cadastro_campos" placeholder="Celular"><br>
                     <input type="password" name="text_senha" class="cadastro_campos" placeholder="Senha"><br>
                     <input type="password" name="text_senha_repete" class="cadastro_campos" placeholder="Repita a Senha"><br>

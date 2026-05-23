@@ -1,83 +1,174 @@
-body {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+}
+
+body {
   background-color: hsl(206, 64%, 94%);
   color: #001a33;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 120px;
+
+  padding: 40px 15px;
 }
 
+/* CARD PRINCIPAL */
+
 .pix-section {
-  margin: 20px;
-  padding: 20px;
+  margin: 15px 0;
+
+  padding: 25px;
+
   background-color: white;
+
   border: 1px solid #1c75bc;
   border-radius: 20px;
-  width: 400px;
+
+  width: 100%;
+  max-width: 450px;
+
   text-align: center;
+
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
+
+/* TITULOS */
 
 .pix-section h2 {
   color: #1c75bc;
   margin-bottom: 15px;
+  font-size: clamp(18px, 2vw, 22px);
 }
 
+/* INPUT */
+
 input {
-  width: 80%;
+  width: 100%;
   padding: 12px;
+
   margin-bottom: 15px;
+
   border-radius: 25px;
   border: 1px solid #1c75bc;
+
   outline: none;
+
   font-size: 16px;
+
   text-align: center;
 }
 
+/* BOTÃO PRINCIPAL */
+
 button {
-  width: 80%;
+  width: 100%;
   padding: 12px;
+
   border-radius: 25px;
   border: none;
+
   background-color: #1c75bc;
   color: white;
+
   font-size: 16px;
   font-weight: 600;
+
   cursor: pointer;
-  transition: background-color 0.3s ease;
+
+  transition: 0.3s ease;
 }
 
 button:hover {
   background-color: #09375d;
 }
 
+/* LISTA */
+
 ul {
   list-style: none;
   padding: 0;
 }
 
+/* ITEM DA LISTA */
+
 li {
-  margin: 8px 0;
-  padding: 8px;
-  border-radius: 10px;
+  margin: 10px 0;
+
+  padding: 12px;
+
+  border-radius: 12px;
+
   background-color: #f0f8ff;
+
   border: 1px solid #1c75bc;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  text-align: left;
 }
 
+/* BOTÃO DE EXCLUIR */
+
 .delete-btn {
-  width: 80%;
+  width: 100%;
+
   padding: 8px;
-  border-radius: 25px;
+
+  border-radius: 20px;
   border: none;
+
   background-color: #d9534f;
   color: white;
-  font-size: 18px;
+
+  font-size: 14px;
   font-weight: 600;
+
   cursor: pointer;
-  transition: background-color 0.3s ease;
+
+  transition: 0.3s ease;
 }
+
 .delete-btn:hover {
   background: #b52b27;
 }
 
+/* RESPONSIVO */
+
+@media (max-width: 768px) {
+
+  body {
+    padding: 25px 10px;
+  }
+
+  .pix-section {
+    width: 100%;
+    max-width: 320px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .pix-section {
+    max-width: 280px;
+    padding: 18px;
+  }
+
+  input {
+    font-size: 15px;
+  }
+
+  button {
+    font-size: 15px;
+  }
+
+  li {
+    padding: 10px;
+  }
+}

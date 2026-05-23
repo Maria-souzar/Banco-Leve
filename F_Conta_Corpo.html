@@ -7,28 +7,42 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         <script>
-        let saldo = 1234.56;
 
-        function mostrarSaldo() {
-            document.getElementById("saldo_valor").innerText = "R$ " + saldo.toFixed(2);
-        }
-        window.onload = function() {
-            mostrarSaldo();
+          let saldo = 1234.56;
+          let nome = "João"; //
+
+          function mostrarSaldo() {
+          document.getElementById("saldo_valor").innerText =
+          "R$ " + saldo.toFixed(2);
           }
-    </script>
 
-      </head>
-        
-    <body>
-        <section class="saldo">
-          <h3>SALDO DISPONÍVEL</h3>
-          <p id="saldo_valor"></p>
-        </section>
+          function mostrarNome() {
+            document.getElementById("nome_usuario").innerText =
+            "OLÁ, " + nome;
+          }
 
-     
+          window.onload = function () {
+            mostrarSaldo();
+            mostrarNome();
+          };
+        </script>
 
-        <br><br>
-        <section>
+    </head>
+        <body>
+          <header>
+            <div class="header-info">
+              <h3 id="nome_usuario"></h3>
+              <h4 id="agencia_conta">AGÊNCIA: 0002 | CONTA: 12345-6</h4>
+            </div>
+          </header>
+
+          <section class="saldo">
+            <h3>SALDO DISPONÍVEL</h3>
+            <p id="saldo_valor"></p>
+          </section>
+
+          <br><br>
+          <section>
             <div class="container">
                 <button class="pix-button" onclick="window.location.href='F_AreaPix_Corpo.html'">
                   <img src="Imagem_Icon_Pix.png" alt="Ícone" class="icon">
@@ -60,15 +74,16 @@
                   <p>Colocar créditos no celular direto pelo banco de forma prática e segura</p>
                 </button>
 
-                <button class="pix-button" onclick="window.location.href='F_Cofrinho_corpo.html'">
+                <button class="pix-button" onclick="window.location.href='F_Cofrinho_Guardar.html'">
                   <img src="Imagem_Icon_Cofrinho.png" alt="Ícone" class="icon">
                   <h3>COFRINHO</h3>
                   <p>Separar um dinheiro para guardar, como uma reserva ou objetivo</p>
                 </button>
             </div>
-        </section>
+          </section>
+          <br><br>
 
-        <section class="investimentos">
+          <section class="investimentos">
             <h2>INVESTIMENTOS</h2>
             <p>Pensados para você</p>
             <br><br>
@@ -101,7 +116,7 @@
             <button class="button1" onclick="window.location.href='F_AreaPix_Manutencao.html'"><b>COMECE A INVESTIR</b></button>
             </section>
        
-        <section>
+          <section>
           <div class="emprestimos">
             <h2>EMPRÉSTIMOS</h2>
             <p>Pensados para você</p>
@@ -131,7 +146,7 @@
             <button class="button2" onclick="window.location.href='F_AreaPix_Manutencao.html'"><b>FAÇA UMA SIMULAÇÃO</b></button>
           </section>
        
-        <section>
+          <section>
           <div class="seguros">
             <h2>SEGUROS</h2>
             <p>Mantendo bem o que te faz bem</p>
@@ -175,5 +190,5 @@
            <button class="button3" onclick="window.location.href='F_AreaPix_Manutencao.html'"><b>CONFERIR PLANOS</b></button>
         </section>
       
-    </body>
+        </body>
 </html>

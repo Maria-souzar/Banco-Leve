@@ -1,43 +1,78 @@
-.saldo {
-  position: absolute;
-  top: 0px;
+header {
+  position: fixed;
+  top: 0;
   left: 0;
-  display: flex;
+
   width: 100%;
-  text-align: left;
-  flex-direction: column;
-  background-color: #1c75bc;
-  color: white;
-  height: 40px;
-  padding: 30px;
-  justify-content: center;
-  align-items: left;
+  max-width: 100%;
+
+  background-color: #ffffff;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 25px;
+
+  z-index: 1000;
+
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.saldo h3 {
-  top: 0;
-  margin: 0;
+header h3 {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+header h3,
+header h4 {
+  margin: 0px;
+  font-family: Poppins, sans-serif;
+  color: #09375d;
+  left: 20px;
+}
+
+.saldo {
+  margin-top: 0px;
+
+  width: 100%;
+  max-width: 100%;
+
+  background-color: #1c75bc;
+  color: white;
+
+  padding: 15px;
+  border-radius: 15px;
+
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.saldo h2 {
+  margin: 0;
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 700;
 }
 
 .saldo p {
-  top: 10px;
-  margin: 0;
-  display: flex;
+  margin: -15px 0 0;
+  font-size: clamp(22px, 3.5vw, 32px);
+  font-weight: 600;
 }
 
+
 body {
-  overflow-x: hidden;
-  margin: -20px;
-  height: 1000px; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: poppins;
-  font-size: 20px;
-  margin-bottom: 0px;
+  margin: 0;
+  padding-top: 80px;
+
+  font-family: Poppins;
   background-color: hsl(206, 64%, 94%);
   color: rgb(0, 0, 26);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container {
@@ -77,13 +112,19 @@ button p{
 }
 
 .pix-button {
+  width: 100%;
+  max-width: 300px;
+  min-height: 220px;
+  border-radius: 20px;
+  border: 1px solid #1c75bc;
+  background-color: white;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 10px;
-  border:1px solid #1c75bc;
-  background-color: white;
+
+  padding: 15px;
   cursor: pointer;
 }
 
@@ -276,7 +317,7 @@ button:hover p{
   color: #49769F;
   cursor: pointer;
   right: 700px;
-  top: 800px;
+  top: 850px;
 }
 
 .button1:hover {

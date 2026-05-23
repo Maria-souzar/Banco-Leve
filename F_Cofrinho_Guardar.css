@@ -1,46 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, sans-serif;
+}
+
 body {
-      font-family: Poppins, sans-serif;
-      background: hsl(206, 64%, 94%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .cofrinho {
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      text-align: center;
-      width: 600px;
-      height: 400PX;
-    }
-    h1 {
-      color: #001D39;
-    }
-    .saldo {
-      font-size: 28px;
-      font-weight: bold;
-      color: #5f8ea3;
-      margin: 20px 0;
-    }
-    input {
-      font-size: 25px;
-      padding: 10px;
-      width: 80%;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      margin-bottom: 15px;
-    }
-    button {
-      padding: 20px 30px;
-      border: none;
-      border-radius: 10px;
-      background: #5f8ea3;
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #3b6a7a;
-    }
+  background: hsl(206, 64%, 94%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 100vh;
+
+  padding: 20px;
+}
+
+/* CARD */
+
+.cofrinho {
+  background: #ffffff;
+
+  border-radius: 20px;
+
+  padding: 30px;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+  text-align: center;
+
+  width: 100%;
+  max-width: 450px;
+}
+
+/* IMAGEM */
+
+.cofrinho img {
+  width: 90px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* TÍTULO */
+
+h1 {
+  color: #001D39;
+  font-size: clamp(34px, 4vw, 32px);
+}
+
+/* SALDO */
+
+.saldo {
+  font-size: clamp(35px, 3vw, 28px);
+  font-weight: bold;
+  color: #5f8ea3;
+
+  margin: 20px 0;
+}
+
+/* INPUT */
+
+input {
+  font-size: 18px;
+
+  padding: 12px;
+
+  width: 100%;
+
+  border-radius: 10px;
+  border: 1px solid #ccc;
+
+  margin-bottom: 15px;
+
+  text-align: center;
+  outline: none;
+}
+
+/* BOTÕES */
+
+button {
+  width: 100%;
+
+  padding: 14px;
+
+  margin-top: 10px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #5f8ea3;
+  color: #fff;
+
+  font-weight: bold;
+  font-size: 16px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: #3b6a7a;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 768px) {
+
+  .cofrinho {
+    max-width: 380px;
+    padding: 25px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .cofrinho {
+    max-width: 320px;
+    padding: 20px;
+  }
+
+  input {
+    font-size: 18px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 12px;
+  }
+}
