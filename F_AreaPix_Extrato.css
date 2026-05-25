@@ -1,75 +1,127 @@
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f4f6f9;
-      margin: 0;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-    }
-    .container-historico {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      width: 100%;
-      max-width: 600px;
-    }
-    h1 {
-      color: #333;
-      font-size: 24px;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    .filtros {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-      justify-content: center;
-    }
-    .btn-filtro {
-      padding: 8px 16px;
-      border: 1px solid #ddd;
-      background: #fff;
-      border-radius: 20px;
-      cursor: pointer;
-      font-family: 'Poppins', sans-serif;
-      transition: all 0.3s;
-    }
-    .btn-filtro.ativo {
-      background: #007bff;
-      color: white;
-      border-color: #007bff;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    li {
-      padding: 12px 15px;
-      border-bottom: 1px solid #eee;
-      font-size: 14px;
-      color: #444;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    /* Cores dinâmicas para ajudar visualmente */
-    .saida { border-left: 4px solid #dc3545; } /* Vermelho para gastos */
-    .entrada { border-left: 4px solid #28a745; } /* Verde para ganhos/empréstimos */
-    
-    .botoes-acoes {
-      margin-top: 25px;
-      display: flex;
-      justify-content: space-between;
-    }
-    .btn-acao {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      font-family: 'Poppins', sans-serif;
-    }
-    .btn-voltar { background: #6c757d; color: white; }
-    .btn-limpar { background: #e63946; color: white; }
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: hsl(206, 64%, 94%);
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.container-historico {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 600px;
+}
+
+h1 {
+    color: #09375d;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.filtros {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    justify-content: center;
+}
+
+.btn-filtro {
+    padding: 10px 20px;
+    border: 1px solid #1c75bc;
+    background: #fff;
+    color: #1c75bc;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-filtro.ativo {
+    background: #1c75bc;
+    color: white;
+    border-color: #1c75bc;
+}
+
+.btn-filtro:hover {
+    background: #1c75bc;
+    color: white;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 14px 15px;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 15px;
+    color: #272626;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8fafc;
+    margin-bottom: 8px;
+    border-radius: 8px;
+}
+
+li:last-child {
+    margin-bottom: 0;
+}
+
+.saida { 
+    border-left: 5px solid #dc3545; 
+} 
+
+.entrada { 
+    border-left: 5px solid #28a745; 
+} 
+
+.botoes-acoes {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+}
+
+.btn-acao {
+    width: 48%;
+    padding: 14px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-voltar { 
+    background: #144373; 
+    color: white; 
+}
+
+.btn-voltar:hover {
+    background: #09375d;
+}
+
+.btn-limpar { 
+    background: #e2e8f0; 
+    color: #475569; 
+}
+
+.btn-limpar:hover {
+    background: #dc3545;
+    color: white;
+}
