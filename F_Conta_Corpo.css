@@ -673,3 +673,45 @@ button:hover p{
   color: #081C39;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+.extrato-container {
+  background-color: #ffffff;
+  border: 1px solid #1c75bc;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 930px;
+  margin: 30px auto;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  font-family: 'Poppins', sans-serif;
+}
+
+.extrato-container h3 {
+  color: #09375d;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #1c75bc;
+  padding-bottom: 8px;
+}
+
+.extrato-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.extrato-container li {
+  font-size: 15px;
+  color: #272626;
+  padding: 12px 15px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.extrato-container li:last-child {
+  border-bottom: none;
+}

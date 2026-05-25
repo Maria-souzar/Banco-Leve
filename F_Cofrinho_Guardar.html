@@ -7,14 +7,38 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
      <script>
-      let saldoConta = 1234.56;
-      let saldoPorquinho = 0.00;
+      function obterSaldoConta() {
+        let saldo = localStorage.getItem('saldoBancario');
+        if (saldo === null) {
+          localStorage.setItem('saldoBancario', '1000.00');
+          return 1000.00;
+        }
+        return parseFloat(saldo);
+      }
+
+      function obterSaldoCofrinho() {
+        let cofrinho = localStorage.getItem('saldoCofrinho');
+        if (cofrinho === null) {
+          localStorage.setItem('saldoCofrinho', '0.00');
+          return 0.00;
+        }
+        return parseFloat(cofrinho);
+      }
 
       function guardar() {
         const valor = parseFloat(document.getElementById('valor').value);
+        let saldoConta = obterSaldoConta();
+        let saldoPorquinho = obterSaldoCofrinho();
+
         if (!isNaN(valor) && valor > 0 && valor <= saldoConta) {
           saldoConta -= valor;
           saldoPorquinho += valor;
+
+          localStorage.setItem('saldoBancario', saldoConta.toFixed(2));
+          localStorage.setItem('saldoCofrinho', saldoPorquinho.toFixed(2));
+
+          salvarNoExtratoGeral(`Guardou no cofrinho: R$ ${valor.toFixed(2)}`);
+
           atualizarSaldos();
         } else {
           alert("Valor inválido ou maior que o saldo da conta.");
@@ -23,18 +47,39 @@
 
       function retirar() {
         const valor = parseFloat(document.getElementById('valor').value);
+        let saldoConta = obterSaldoConta();
+        let saldoPorquinho = obterSaldoCofrinho();
+
         if (!isNaN(valor) && valor > 0 && valor <= saldoPorquinho) {
           saldoPorquinho -= valor;
           saldoConta += valor;
+
+          localStorage.setItem('saldoBancario', saldoConta.toFixed(2));
+          localStorage.setItem('saldoCofrinho', saldoPorquinho.toFixed(2));
+
+          salvarNoExtratoGeral(`Retirou do cofrinho: R$ ${valor.toFixed(2)}`);
+
           atualizarSaldos();
         } else {
           alert("Valor inválido ou maior que o saldo do porquinho.");
         }
       }
 
+      function salvarNoExtratoGeral(mensagem) {
+        const agora = new Date();
+        const horaFormatada = agora.toLocaleTimeString("pt-BR", { hour: '2-digit', minute: '2-digit' });
+        
+        let historicoGeral = JSON.parse(localStorage.getItem('historicoGeral')) || [];
+        historicoGeral.unshift(`${mensagem} às ${horaFormatada}`);
+        localStorage.setItem('historicoGeral', JSON.stringify(historicoGeral));
+      }
+
       function atualizarSaldos() {
-        document.getElementById('saldo').textContent = 
-          "R$ " + saldoPorquinho.toFixed(2);
+        let saldoPorquinho = obterSaldoCofrinho();
+        let saldoConta = obterSaldoConta();
+
+        document.getElementById('saldo').textContent = "R$ " + saldoPorquinho.toFixed(2);
+        document.getElementById('saldoContaExibido').textContent = `Saldo em conta: R$ ${saldoConta.toFixed(2)}`;
         document.getElementById('valor').value = "";
       }
 
@@ -43,6 +88,8 @@
 </head>
   <body>
     <div class="cofrinho">
+        <div id="saldoContaExibido" style="font-family: 'Poppins', sans-serif; font-size: 0.9em; font-weight: bold; margin-bottom: 5px; color: #555;"></div>
+        <br>
         <img src="Imagem_Icon_Cofrinho.png">
         <h1>COFRINHO</h1>
         <div class="saldo"><span id="saldo">0.00</span></div>

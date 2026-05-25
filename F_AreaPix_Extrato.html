@@ -2,96 +2,15 @@
 <head>
   <meta charset="UTF-8">
   <title>Extrato Detalhado</title>
-  <link rel="stylesheet" type="text/css" href="F_Historico.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" type="text/css" href="F_AreaPix_Extrato.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  
-  <style>
-    /* Estilização rápida para o histórico ficar bonito, caso queira testar direto */
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f4f6f9;
-      margin: 0;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-    }
-    .container-historico {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      width: 100%;
-      max-width: 600px;
-    }
-    h1 {
-      color: #333;
-      font-size: 24px;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    .filtros {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-      justify-content: center;
-    }
-    .btn-filtro {
-      padding: 8px 16px;
-      border: 1px solid #ddd;
-      background: #fff;
-      border-radius: 20px;
-      cursor: pointer;
-      font-family: 'Poppins', sans-serif;
-      transition: all 0.3s;
-    }
-    .btn-filtro.ativo {
-      background: #007bff;
-      color: white;
-      border-color: #007bff;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    li {
-      padding: 12px 15px;
-      border-bottom: 1px solid #eee;
-      font-size: 14px;
-      color: #444;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    /* Cores dinâmicas para ajudar visualmente */
-    .saida { border-left: 4px solid #dc3545; } /* Vermelho para gastos */
-    .entrada { border-left: 4px solid #28a745; } /* Verde para ganhos/empréstimos */
-    
-    .botoes-acoes {
-      margin-top: 25px;
-      display: flex;
-      justify-content: space-between;
-    }
-    .btn-acao {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      font-family: 'Poppins', sans-serif;
-    }
-    .btn-voltar { background: #6c757d; color: white; }
-    .btn-limpar { background: #e63946; color: white; }
-  </style>
 
   <script>
-    // Função que carrega e renderiza o histórico com opção de filtro
     function carregarHistorico(filtro = 'todos') {
       const lista = document.getElementById('listaCompleta');
       lista.innerHTML = "";
 
-      // Pega a lista do LocalStorage
       let historicoGeral = JSON.parse(localStorage.getItem('historicoGeral')) || [];
 
       if (historicoGeral.length === 0) {
@@ -99,7 +18,6 @@
         return;
       }
 
-      // Atualiza o estado visual dos botões de filtro
       document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('ativo'));
       document.getElementById(`filtro-${filtro}`).classList.add('ativo');
 
@@ -107,14 +25,12 @@
         const li = document.createElement('li');
         li.textContent = item;
 
-        // Identifica se é uma Entrada ou Saída de dinheiro para aplicar a cor na borda
         const ehSaida = item.includes("PIX de") || item.includes("Transferência") || item.includes("Recarga") || item.includes("Guardou");
         const ehEntrada = item.includes("recebido") || item.includes("Retirou");
 
         if (ehSaida) li.classList.add('saida');
         if (ehEntrada) li.classList.add('entrada');
 
-        // Aplica o filtro na tela
         if (filtro === 'todos') {
           lista.appendChild(li);
         } else if (filtro === 'entradas' && ehEntrada) {
@@ -123,14 +39,6 @@
           lista.appendChild(li);
         }
       });
-    }
-
-    // Função opcional para limpar os dados de teste
-    function limparHistorico() {
-      if (confirm("Deseja realmente limpar todo o histórico de transações?")) {
-        localStorage.removeItem('historicoGeral');
-        carregarHistorico();
-      }
     }
 
     window.onload = function() {
@@ -145,16 +53,12 @@
 
     <div class="filtros">
       <button id="filtro-todos" class="btn-filtro ativo" onclick="carregarHistorico('todos')">Todos</button>
-      <button id="filtro-entradas" class="btn-filtro" onclick="carregarHistorico('entradas')">Entradas (+)</button>
-      <button id="filtro-saidas" class="btn-filtro" onclick="carregarHistorico('saidas')">Saídas (-)</button>
+      <button id="filtro-entradas" class="btn-filtro" onclick="carregarHistorico('entradas')">Entradas</button>
+      <button id="filtro-saidas" class="btn-filtro" onclick="carregarHistorico('saidas')">Saídas</button>
     </div>
 
     <ul id="listaCompleta"></ul>
 
-    <div class="botoes-acoes">
-      <button class="btn-acao btn-voltar" onclick="window.location.href='F_Conta_Corpo.html'">VOLTAR</button>
-      <button class="btn-acao btn-limpar" onclick="limparHistorico()">ZERAR EXTRATO</button>
-    </div>
   </div>
 
 </body>
