@@ -30,10 +30,10 @@ h1 {
 
 .container {
   width: 100%;
-  max-width: 800px;
+  max-width: 1500px;
 
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
@@ -52,7 +52,7 @@ h1 {
   justify-content: center;
   align-items: center;
 
-  padding: 20px;
+  padding: 110px;
 
   cursor: pointer;
   transition: 0.3s ease;
