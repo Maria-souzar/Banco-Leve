@@ -1,3 +1,4 @@
+
 *{
   margin: 0;
   padding: 0;
@@ -61,8 +62,8 @@ h1 {
 /* ÍCONE */
 
 .pix-button .icon {
-  width: 90px;
-  height: 90px;
+  width: 120px;
+  height: 120px;
   object-fit: contain;
   margin-bottom: 12px;
 }
@@ -70,7 +71,7 @@ h1 {
 /* TÍTULO DOS CARDS */
 
 .pix-button h3 {
-  font-size: clamp(20px, 2vw, 26px);
+  font-size: clamp(30px, 2vw, 30px);
   color: #082741;
   margin-bottom: 10px;
   text-align: center;
@@ -79,7 +80,7 @@ h1 {
 /* TEXTO */
 
 .pix-button p {
-  font-size: clamp(16px, 1.8vw, 22px);
+  font-size: clamp(20px, 1.8vw, 20px);
   color: #09375d;
   text-align: center;
   line-height: 1.4;
@@ -119,8 +120,8 @@ h1 {
   }
 
   .pix-button .icon {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
   }
 
   .pix-button h3 {
