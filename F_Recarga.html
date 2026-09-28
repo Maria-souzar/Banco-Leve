@@ -1,33 +1,289 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Recarga de Celular</title>
-  <link rel="stylesheet" type="text/css" href="F_Recarga.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  </head>
-<body>
-  <div class="container">
-    <h1>RECARGA DE CELULAR</h1>
-    <input type="text" id="numero" placeholder="Número do celular">
-    <select id="valor">
-      <option value="">SELECIONE O VALOR</option>
-      <option value="10">R$ 10</option>
-      <option value="20">R$ 20</option>
-      <option value="30">R$ 30</option>
-      <option value="50">R$ 50</option>
-    </select>
-    <br>
-    <button onclick="recargar()">CONFIRMAR</button>
-    <button onclick="resetar()">RESETAR</button>
 
-    <div class="mensagem" id="mensagem"></div>
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Recarga de Celular</title>
+
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="F_Recarga.css"
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet"
+  >
+
+</head>
+
+
+<body>
+
+  <div class="container">
+
+    <h1>RECARGA DE CELULAR</h1>
+
+
+    <input
+      type="text"
+      id="numero"
+      placeholder="Número do celular"
+    >
+
+
+    <select id="valor">
+
+      <option value="">
+        SELECIONE O VALOR
+      </option>
+
+      <option value="10">
+        R$ 10
+      </option>
+
+      <option value="20">
+        R$ 20
+      </option>
+
+      <option value="30">
+        R$ 30
+      </option>
+
+      <option value="50">
+        R$ 50
+      </option>
+
+    </select>
+
+
+    <br>
+
+
+    <button onclick="recargar()">
+      CONFIRMAR
+    </button>
+
+
+    <button onclick="resetar()">
+      RESETAR
+    </button>
+
+
+    <div
+      class="mensagem"
+      id="mensagem">
+    </div>
+
 
     <div class="historico">
+
       <h2>HISTÓRICO DE RECARGAS</h2>
+
       <ul id="listaHistorico"></ul>
+
     </div>
+
   </div>
+
+
+<script>
+
+
+// =====================================================
+// REALIZAR RECARGA
+// =====================================================
+
+async function recargar() {
+
+    const numero =
+        document.getElementById("numero").value.trim();
+
+
+    const valor =
+        Number(
+            document.getElementById("valor").value
+        );
+
+
+    const mensagem =
+        document.getElementById("mensagem");
+
+
+    // ---------------------------------------------
+    // VERIFICAR NÚMERO
+    // ---------------------------------------------
+
+    if (numero === "") {
+
+        mensagem.innerText =
+            "Digite o número do celular.";
+
+        return;
+
+    }
+
+
+    // ---------------------------------------------
+    // VERIFICAR VALOR
+    // ---------------------------------------------
+
+    if (!valor || valor <= 0) {
+
+        mensagem.innerText =
+            "Selecione um valor para a recarga.";
+
+        return;
+
+    }
+
+
+    try {
+
+        const resposta =
+            await fetch(
+                "recarga.php",
+                {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify({
+
+                        numero: numero,
+                        valor: valor
+
+                    })
+
+                }
+            );
+
+
+        const dados =
+            await resposta.json();
+
+
+        // ---------------------------------------------
+        // RECARGA REALIZADA
+        // ---------------------------------------------
+
+        if (dados.sucesso) {
+
+            mensagem.innerText =
+                dados.mensagem;
+
+
+            // Mostrar no histórico
+
+            adicionarHistorico(
+                numero,
+                valor
+            );
+
+
+            // Limpar os campos
+
+            document.getElementById(
+                "numero"
+            ).value = "";
+
+
+            document.getElementById(
+                "valor"
+            ).value = "";
+
+
+        } else {
+
+            mensagem.innerText =
+                dados.mensagem;
+
+        }
+
+
+    } catch (erro) {
+
+        console.error(erro);
+
+        mensagem.innerText =
+            "Erro ao comunicar com o servidor.";
+
+    }
+
+}
+
+
+// =====================================================
+// HISTÓRICO VISUAL
+// =====================================================
+
+function adicionarHistorico(
+    numero,
+    valor
+) {
+
+    const lista =
+        document.getElementById(
+            "listaHistorico"
+        );
+
+
+    const item =
+        document.createElement("li");
+
+
+    item.innerText =
+        "Recarga de R$ " +
+        Number(valor).toFixed(2) +
+        " - Celular: " +
+        numero;
+
+
+    lista.prepend(item);
+
+}
+
+
+// =====================================================
+// RESETAR
+// =====================================================
+
+function resetar() {
+
+    document.getElementById(
+        "numero"
+    ).value = "";
+
+
+    document.getElementById(
+        "valor"
+    ).value = "";
+
+
+    document.getElementById(
+        "mensagem"
+    ).innerText = "";
+
+}
+
+</script>
+
+
 </body>
+
 </html>

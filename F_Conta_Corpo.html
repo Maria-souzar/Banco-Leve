@@ -6,16 +6,48 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-        <script>
-        let saldo = 1234.56;
+<script>
 
-        function mostrarSaldo() {
-            document.getElementById("saldo_valor").innerText = "R$ " + saldo.toFixed(2);
+async function mostrarSaldo() {
+
+    try {
+
+        const resposta = await fetch("saldo.php");
+
+        const dados = await resposta.json();
+
+
+        if (dados.sucesso) {
+
+            const saldo = Number(dados.saldo);
+
+            document.getElementById("saldo_valor").innerText =
+                "R$ " + saldo.toLocaleString("pt-BR", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+
+        } else {
+
+            document.getElementById("saldo_valor").innerText =
+                "Erro ao consultar saldo.";
+
         }
-        window.onload = function() {
-            mostrarSaldo();
-          }
-    </script>
+
+    } catch (erro) {
+
+        console.error(erro);
+
+        document.getElementById("saldo_valor").innerText =
+            "Erro ao conectar com o servidor.";
+
+    }
+}
+
+
+window.onload = mostrarSaldo;
+
+</script>
 
       </head>
         

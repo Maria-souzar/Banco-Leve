@@ -7,6 +7,78 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
+<script>
+
+async function carregarChaves() {
+
+    const lista =
+        document.getElementById("lista_chaves");
+
+
+    try {
+
+        const resposta =
+            await fetch("listar_chaves_pix.php");
+
+
+        const dados =
+            await resposta.json();
+
+
+        lista.innerHTML = "";
+
+
+        if (!dados.sucesso) {
+
+            lista.innerHTML =
+                "<li>" + dados.mensagem + "</li>";
+
+            return;
+        }
+
+
+        if (dados.chaves.length === 0) {
+
+            lista.innerHTML =
+                "<li>Nenhuma chave cadastrada.</li>";
+
+            return;
+        }
+
+
+        dados.chaves.forEach(function(chave) {
+
+            const item =
+                document.createElement("li");
+
+
+            item.innerText =
+                chave.tipo_chave +
+                ": " +
+                chave.chave;
+
+
+            lista.appendChild(item);
+
+        });
+
+
+    } catch (erro) {
+
+        console.error(erro);
+
+        lista.innerHTML =
+            "<li>Erro ao carregar as chaves.</li>";
+
+    }
+
+}
+
+
+window.onload =
+    carregarChaves;
+
+</script>
 <body>
   <section class="pix-section">
     <h2>CADASTRAR CHAVE PIX</h2>

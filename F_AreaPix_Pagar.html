@@ -4,11 +4,126 @@
   <title>PAGAR COM PIX</title>
   <link rel="stylesheet" href="F_AreaPix_Pagar.css">
 </head>
+<script>
+
+async function pagar() {
+
+    const chave =
+        document.getElementById("chave").value.trim();
+
+    const valor =
+        Number(document.getElementById("valor").value);
+
+    const mensagem =
+        document.getElementById("mensagem");
+
+
+    if (chave === "") {
+
+        mensagem.innerText =
+            "Digite uma chave Pix.";
+
+        return;
+    }
+
+
+    if (!Number.isFinite(valor) || valor <= 0) {
+
+        mensagem.innerText =
+            "Digite um valor válido.";
+
+        return;
+    }
+
+
+    try {
+
+        const resposta = await fetch("pix.php", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+
+                chave: chave,
+
+                valor: valor
+
+            })
+
+        });
+
+
+        const dados =
+            await resposta.json();
+
+
+        if (dados.sucesso) {
+
+            mensagem.innerText =
+                dados.mensagem;
+
+
+            document.getElementById("chave").value = "";
+
+            document.getElementById("valor").value = "";
+
+
+
+        } else {
+
+            mensagem.innerText =
+                dados.mensagem;
+
+        }
+
+
+    } catch (erro) {
+
+        console.error(erro);
+
+        mensagem.innerText =
+            "Erro ao comunicar com o servidor.";
+
+    }
+
+}
+
+
+function resetar() {
+
+    document.getElementById("chave").value = "";
+
+    document.getElementById("valor").value = "";
+
+    document.getElementById("mensagem").innerText = "";
+
+}
+
+</script>
 <body>
   <div class="container">
     <h1>PAGAMENTO VIA PIX</h1>
-    <input type="text" id="chave" placeholder="DIGITE A CHAVE PIX">
-    <input type="number" id="valor" placeholder="VALOR DO PAGAMENTO">
+    <input
+    type="text"
+    id="chave"
+    name="chave"
+    placeholder="DIGITE A CHAVE PIX"
+    required
+>
+
+<input
+    type="number"
+    id="valor"
+    name="valor"
+    placeholder="VALOR DO PAGAMENTO"
+    min="0.01"
+    step="0.01"
+    required
+>
     <br>
     <button onclick="pagar()">PAGAR</button>
     <button onclick="resetar()">CANCELAR</button>

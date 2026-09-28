@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>DEPOSITAR PIX</title>
+
+    <link rel="stylesheet" href="F_AreaPix_Depositar.css">
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <h1>DEPOSITAR VIA PIX</h1>
+
+        <p>
+            Digite a chave Pix e o valor que deseja depositar.
+        </p>
+
+
+        <input
+            type="text"
+            id="chave"
+            placeholder="DIGITE SUA CHAVE PIX"
+            required
+        >
+
+
+        <input
+            type="number"
+            id="valor"
+            placeholder="VALOR DO DEPÓSITO"
+            min="0.01"
+            step="0.01"
+            required
+        >
+
+
+        <br>
+
+
+        <button onclick="depositar()">
+            DEPOSITAR
+        </button>
+
+
+        <button onclick="resetar()">
+            CANCELAR
+        </button>
+
+
+        <div
+            class="mensagem"
+            id="mensagem">
+        </div>
+
+    </div>
+
+
+<script>
+
+async function depositar() {
+
+    const chave =
+        document.getElementById("chave").value.trim();
+
+    const valor =
+        Number(document.getElementById("valor").value);
+
+    const mensagem =
+        document.getElementById("mensagem");
+
+
+    // ==========================================
+    // VALIDAR CHAVE
+    // ==========================================
+
+    if (chave === "") {
+
+        mensagem.innerText =
+            "Digite uma chave Pix.";
+
+        return;
+    }
+
+
+    // ==========================================
+    // VALIDAR VALOR
+    // ==========================================
+
+    if (!Number.isFinite(valor) || valor <= 0) {
+
+        mensagem.innerText =
+            "Digite um valor válido.";
+
+        return;
+    }
+
+
+    try {
+
+        const resposta = await fetch("depositar_pix.php", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+
+                chave: chave,
+
+                valor: valor
+
+            })
+
+        });
+
+
+        const dados =
+            await resposta.json();
+
+
+        // ==========================================
+        // RESPOSTA DO PHP
+        // ==========================================
+
+        if (dados.sucesso) {
+
+            mensagem.innerText =
+                dados.mensagem;
+
+
+            document.getElementById("chave").value = "";
+
+            document.getElementById("valor").value = "";
+
+        } else {
+
+            mensagem.innerText =
+                dados.mensagem;
+
+        }
+
+
+    } catch (erro) {
+
+        console.error(erro);
+
+        mensagem.innerText =
+            "Erro ao comunicar com o servidor.";
+
+    }
+
+}
+
+
+function resetar() {
+
+    document.getElementById("chave").value = "";
+
+    document.getElementById("valor").value = "";
+
+    document.getElementById("mensagem").innerText = "";
+
+}
+
+</script>
+
+</body>
+
+</html>
